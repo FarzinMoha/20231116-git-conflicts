@@ -25,8 +25,10 @@ def plot_fractal(fractal_image, x_min, x_max, y_min, y_max):
 
 # Set the parameters for the Mandelbrot set
 width, height = 800, 800
-x_min, x_max = -2, 2
-y_min, y_max = -2, 2
+x_min, x_max = -.8, .8
+y_min, y_max = -.8, .8
+# x_min, x_max = -2, 2
+# y_min, y_max = -2, 2
 max_iter = 100
 
 # Generate and plot the Mandelbrot set
