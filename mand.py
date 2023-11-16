@@ -1,15 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def mandelbrot(c, max_iter):
     z = 0
     n = 0
     while abs(z) <= 2 and n < max_iter:
-        z = z**2 + c
+        z = z ** 2 + c
         n += 1
     if n == max_iter:
         return max_iter
     return n + 1 - np.log(np.log2(abs(z)))
+
 
 def mandelbrot_set(width, height, x_min, x_max, y_min, y_max, max_iter):
     x, y = np.meshgrid(np.linspace(x_min, x_max, width), np.linspace(y_min, y_max, height))
@@ -17,18 +19,20 @@ def mandelbrot_set(width, height, x_min, x_max, y_min, y_max, max_iter):
     mandelbrot_image = np.vectorize(lambda c: mandelbrot(c, max_iter))(c)
     return mandelbrot_image
 
+
 def plot_fractal(fractal_image, x_min, x_max, y_min, y_max):
     plt.imshow(fractal_image, extent=(x_min, x_max, y_min, y_max), cmap='hot', interpolation='bilinear')
     plt.colorbar()
     plt.title('Mandelbrot Set')
     plt.show()
 
+
 # Set the parameters for the Mandelbrot set
 width, height = 800, 800
-x_min, x_max = -.8, .8
-y_min, y_max = -.8, .8
-# x_min, x_max = -2, 2
-# y_min, y_max = -2, 2
+
+x_min, x_max = -1, 1
+y_min, y_max = -1, 1
+
 max_iter = 100
 
 # Generate and plot the Mandelbrot set
